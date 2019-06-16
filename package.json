@@ -1,0 +1,24 @@
+{
+  "name": "where-in-json",
+  "version": "1.0.0",
+  "description": "A JavaScript library to convert a JSON filter to SQL Where Clause.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jugnuagrawal/where-in-json.git"
+  },
+  "keywords": [
+    "JSON",
+    "SQL",
+    "JSON-SQL"
+  ],
+  "author": "Jugnu Agrawal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jugnuagrawal/where-in-json/issues"
+  },
+  "homepage": "https://github.com/jugnuagrawal/where-in-json#readme"
+}
