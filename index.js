@@ -47,7 +47,7 @@ function computeCondition(dataKey, condition) {
         } else if (key == '$ne') {
             andQuery.push(`${dataKey} <> ${addQuotes(hasQuotes, condition[key])}`);
         } else if (key == '$in') {
-            andQuery.push(`${dataKey} IN (${condition[key].join(', ')})`);
+            andQuery.push(`${dataKey} IN (${condition[key].map(e => "'" + e + "'").join(', ')})`);
         } else if (key == '$regex') {
             andQuery.push(`${dataKey} LIKE '%${condition[key]}%'`);
         } else if (key == '$and') {
