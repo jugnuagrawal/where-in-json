@@ -50,7 +50,7 @@ function computeCondition(dataKey, condition) {
             andQuery.push(`${dataKey} IN (${condition[key].map(e => "'" + e + "'").join(', ')})`);
         } else if (key == '$nin') {
             andQuery.push(`${dataKey} NOT IN (${condition[key].map(e => "'" + e + "'").join(', ')})`);
-        } else if (key == '$regexp') {
+        } else if (key == '$regex') {
             andQuery.push(`${dataKey} REGEXP '${condition[key]}'`);
         } else if (key == '$like') {
             andQuery.push(`${dataKey} LIKE '%${condition[key]}%'`);
