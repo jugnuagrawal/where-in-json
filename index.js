@@ -45,11 +45,17 @@ function computeCondition(dataKey, condition) {
         } else if (key == '$gte') {
             andQuery.push(`${dataKey} >= ${addQuotes(hasQuotes, condition[key])}`);
         } else if (key == '$ne') {
-            andQuery.push(`${dataKey} <> ${addQuotes(hasQuotes, condition[key])}`);
+            andQuery.push(`${dataKey} != ${addQuotes(hasQuotes, condition[key])}`);
         } else if (key == '$in') {
             andQuery.push(`${dataKey} IN (${condition[key].map(e => "'" + e + "'").join(', ')})`);
-        } else if (key == '$regex') {
+        } else if (key == '$nin') {
+            andQuery.push(`${dataKey} NOT IN (${condition[key].map(e => "'" + e + "'").join(', ')})`);
+        } else if (key == '$regexp') {
+            andQuery.push(`${dataKey} REGEXP '${condition[key]}'`);
+        } else if (key == '$like') {
             andQuery.push(`${dataKey} LIKE '%${condition[key]}%'`);
+        } else if (key == '$nlike') {
+            andQuery.push(`${dataKey} NOT LIKE '%${condition[key]}%'`);
         } else if (key == '$and') {
             const tempAnd = [];
             condition[key].forEach(item => {
